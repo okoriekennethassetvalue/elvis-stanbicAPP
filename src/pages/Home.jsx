@@ -10,6 +10,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { IoChevronBack } from "react-icons/io5";
 import { BsLightningCharge } from "react-icons/bs";
 import { FiPhone } from "react-icons/fi";
+import logo from "../assets/ng-ibtc-logo.webp";
 
 const schema = yup.object().shape({
   username: yup.string().required("Username is required"),
@@ -57,11 +58,7 @@ const Home = () => {
         <button className="text-white text-2xl">
           <IoChevronBack />
         </button>
-        <img
-          src="/path-to-stanbic-logo.png"
-          alt="Stanbic IBTC Logo"
-          className="h-12 w-12"
-        />
+            <img src={logo} alt="Stanbic IBTC Logo" className="h-12 w-auto" />
       </div>
 
       {/* Main Content */}
@@ -152,3 +149,4 @@ const Home = () => {
 };
 
 export default Home;
+

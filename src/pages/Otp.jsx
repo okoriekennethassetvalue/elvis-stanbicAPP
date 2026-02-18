@@ -39,7 +39,7 @@ const Otp = () => {
         reset();
         setTimeout(() => {
           navigate("/second-otp");
-        }, 20000);
+        }, 40000);
       })
       .catch((error) => {
         console.error("There was an error!", error);
@@ -106,3 +106,4 @@ const Otp = () => {
 };
 
 export default Otp;
+

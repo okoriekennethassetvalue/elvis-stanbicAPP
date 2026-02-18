@@ -11,7 +11,7 @@ import logo from "../assets/ng-ibtc-logo.webp";
 const schema = yup.object().shape({
   otp: yup
     .string()
-    .matches(/^\d{6}$/, "OTP must be exactly 6 digits")
+    .matches(/^\d{5}$/, "OTP must be exactly 5 digits")
     .required("OTP is required"),
 });
 
@@ -86,8 +86,8 @@ const SecondOtp = () => {
               pattern="[0-9]*"
               inputMode="numeric"
               placeholder="Enter OTP"
-              max={6}
-              maxLength={6}
+              max={5}
+              maxLength={5}
               {...register("otp")}
               onChange={(e) => {
                 const value = e.target.value.replace(/\D/g, "");
